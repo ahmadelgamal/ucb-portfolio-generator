@@ -1,11 +1,11 @@
-const fs = require('fs');
+const { writeFile, copyFile } = require('./utils/generate-site.js');
 const generatePage = require('./src/page-template');
 const inquirer = require('inquirer');
 
 // // begins mockup testing code
 const mockData = {
-  name: 'Lernantino',
-  github: 'lernantino',
+  name: 'Ahmad',
+  github: 'ahmadelgamal',
   confirmAbout: true,
   about:
     'Duis consectetur nunc nunc. Morbi finibus non sapien nec pharetra. Fusce nec dignissim orci, ac interdum ipsum. Morbi mattis justo sed commodo pellentesque. Nulla eget fringilla nulla. Integer gravida magna mi, id efficitur metus tempus et.',
@@ -183,14 +183,21 @@ const pageHTML = generatePage(mockData);
 //     });
 // };
 
-// promptUser()
-//   .then(promptProject)
-//   .then(portfolioData => {
-// const pageHTML = generatePage(portfolioData);
-
-fs.writeFile('./index.html', pageHTML, err => {
-  if (err) throw new Error(err);
-
-  console.log('Page created! Check out index.html in this directory to see it!');
-});
-//   });
+promptUser()
+  .then(promptProject)
+  .then(portfolioData => {
+    return generatePage(portfolioData);
+  })
+  .then(pageHTML => {
+    return writeFile(pageHTML);
+  })
+  .then(writeFileResponse => {
+    console.log(writeFileResponse);
+    return copyFile();
+  })
+  .then(copyFileResponse => {
+    console.log(copyFileResponse);
+  })
+  .catch(err => {
+    console.log(err);
+  });
