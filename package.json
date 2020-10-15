@@ -1,0 +1,22 @@
+{
+  "name": "ucb-portfolio-generator",
+  "version": "1.0.0",
+  "description": "Generates Portfolio based on user input",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ahmadelgamal/ucb-portfolio-generator.git"
+  },
+  "author": "Ahmad El Gamal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ahmadelgamal/ucb-portfolio-generator/issues"
+  },
+  "homepage": "https://github.com/ahmadelgamal/ucb-portfolio-generator#readme",
+  "dependencies": {
+    "inquirer": "^7.3.3"
+  }
+}
